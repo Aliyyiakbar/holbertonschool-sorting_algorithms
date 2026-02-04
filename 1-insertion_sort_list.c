@@ -6,7 +6,6 @@
   * @list: Double pointer to the head of the list
   * @node: Pointer to the node to move left
   *        (swap with node->prev)
-  * 
   */
 
 void swap_nodes(listint_t **list, listint_t *node)
@@ -36,7 +35,6 @@ void swap_nodes(listint_t **list, listint_t *node)
  /**
   * insertion_sort_list - Sorts a doubly linked list of
   *                       integers in acseding order
-  * 
   * @list: Double pointer to the head of the list
   */
 
@@ -51,12 +49,12 @@ void insertion_sort_list(listint_t **list)
 
 	cur = (*list)->next;
 
-	while(cur)
+	while (cur)
 	{
 		ins = cur;
 		cur = cur->next;
 
-		while(ins->prev && ins->n < ins->prev->n)
+		while (ins->prev && ins->n < ins->prev->n)
 		{
 			swap_nodes(list, ins);
 			print_list(*list);
