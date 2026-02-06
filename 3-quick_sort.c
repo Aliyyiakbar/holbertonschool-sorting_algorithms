@@ -1,5 +1,14 @@
 #include "sort.h"
 
+/**
+ * quick_sort_recursive - helper function that implements the Quick sort
+ *                        algorithm recursively
+ * @a: The array of integers to be sorted
+ * @l: The left index of the sub-array to be sorted
+ * @r: The right index of the sub-array to be sorted
+ * @ln: The size of the entire array
+ */
+
 void quick_sort_recursive(int *a, int l, int r, size_t ln)
 {
 	if (l < r)
