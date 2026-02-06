@@ -17,11 +17,9 @@ void merge(int *a, int *b, size_t l, size_t m, size_t r)
 	print_array(a + l, m - l);
 	printf("[right]: ");
 	print_array(a + m, r - m);
-
 	i = l;
 	j = m;
 	k = l;
-
 	while (i < m && j < r)
 	{
 		if (a[i] <= a[j])
@@ -36,26 +34,22 @@ void merge(int *a, int *b, size_t l, size_t m, size_t r)
 		}
 		k++;
 	}
-
 	while (i < m)
 	{
 		b[k] = a[i];
 		i++;
 		k++;
 	}
-
 	while (j < r)
 	{
 		b[k] = a[j];
 		j++;
 		k++;
 	}
-
 	for (i = l; i < r; i++)
 	{
 		a[i] = b[i];
 	}
-
 	printf("[Done]: ");
 	print_array(a + l, r - l);
 }
