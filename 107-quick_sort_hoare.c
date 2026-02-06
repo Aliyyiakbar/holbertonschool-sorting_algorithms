@@ -33,13 +33,11 @@ ssize_t qh_pt(int *a, ssize_t lo, ssize_t hi, size_t sz)
 	{
 		do {
 			i++;
-		}
-		while (a[i] < p);
+		} while (a[i] < p);
 
 		do {
 			j--;
-		}
-		while (a[j] > p);
+		} while (a[j] > p);
 
 		if (i >= j)
 		{
