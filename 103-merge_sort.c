@@ -12,14 +12,11 @@ void merge(int *a, int *b, size_t l, size_t m, size_t r)
 {
 	size_t i, j, k;
 
-	printf("Merging...\n");
-	printf("[left]: ");
+	printf("Merging...\n[left]: ");
 	print_array(a + l, m - l);
 	printf("[right]: ");
 	print_array(a + m, r - m);
-	i = l;
-	j = m;
-	k = l;
+	i = l, j = m, k = l;
 	while (i < m && j < r)
 	{
 		if (a[i] <= a[j])
