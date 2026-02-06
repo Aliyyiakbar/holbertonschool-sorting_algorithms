@@ -27,19 +27,21 @@ ssize_t qh_pt(int *a, ssize_t lo, ssize_t hi, size_t sz)
 	int p;
 	ssize_t i, j;
 
-	p = a[hi], i = lo - 1, j = hi + 1;
+	p = a[hi];
+	i = lo - 1;
+	j = hi + 1;
 
 	while (1)
 	{
 		do
 		{
-			++i;
+			i++;
 		}
 		while (a[i] < p);
 
 		do
 		{
-			--j;
+			j--;
 		}
 		while (a[j] > p);
 
@@ -60,13 +62,19 @@ ssize_t qh_pt(int *a, ssize_t lo, ssize_t hi, size_t sz)
  * @hi: High index (inclusive)
  * @sz: Full array size (for printing)
  */
-static void qh_sc(int *a, ssize_t lo, ssize_t hi, size_t sz)
+void qh_sc(int *a, ssize_t lo, ssize_t hi, size_t sz)
 {
 	ssize_t p;
 
 	if (lo < hi)
 	{
 		p = qh_pt(a, lo, hi, sz);
+
+		if (p == hi)
+		{
+			p--;
+		}
+
 		qh_sc(a, lo, p, sz);
 		qh_sc(a, p + 1, hi, sz);
 	}
