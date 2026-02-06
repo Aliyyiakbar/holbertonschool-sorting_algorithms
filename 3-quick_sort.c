@@ -11,38 +11,41 @@
 
 void quick_sort_recursive(int *a, int l, int r, size_t ln)
 {
-	if (l < r)
+	int pivot, i, j, temp;
+
+	if (l >= r)
 	{
-		int pivot = a[r], i = l - 1, j, temp;
+		return;
+	}
 
-		for (j = l; j < r; ++j)
+	pivot = a[r];
+	i = l - 1;
+
+	for (j = l; j < r; ++j)
+	{
+		if (a[j] < pivot)
 		{
-			if (a[j] < pivot)
+			++i;
+			if (i != j)
 			{
-				++i;
-
-				if (i != j)
-				{
-					temp = a[i];
-					a[i] = a[j];
-					a[j] = temp;
-
-					print_array(a, ln);
-				}
+				temp = a[i];
+				a[i] = a[j];
+				a[j] = temp;
+				print_array(a, ln);
 			}
 		}
-		if (i + 1 != r)
-		{
-			temp = a[i + 1];
-			a[i + 1] = a[r];
-			a[r] = temp;
-
-			print_array(a, ln);
-		}
-
-		quick_sort_recursive(a, l, i, ln);
-		quick_sort_recursive(a, i + 2, r, ln);
 	}
+
+	if (i + 1 != r && a[i + 1] != a[r])
+	{
+		temp = a[i + 1];
+		a[i + 1] = a[r];
+		a[r] = temp;
+		print_array(a, ln);
+	}
+
+	quick_sort_recursive(a, l, i, ln);
+	quick_sort_recursive(a, i + 2, r, ln);
 }
 
 /**
