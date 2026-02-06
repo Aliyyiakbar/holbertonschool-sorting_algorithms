@@ -27,20 +27,16 @@ ssize_t qh_pt(int *a, ssize_t lo, ssize_t hi, size_t sz)
 	int p;
 	ssize_t i, j;
 
-	p = a[hi];
-	i = lo - 1;
-	j = hi + 1;
+	p = a[hi], i = lo - 1, j = hi + 1;
 
 	while (1)
 	{
-		do
-		{
+		do {
 			i++;
 		}
 		while (a[i] < p);
 
-		do
-		{
+		do {
 			j--;
 		}
 		while (a[j] > p);
